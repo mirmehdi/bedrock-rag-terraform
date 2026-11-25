@@ -13,7 +13,7 @@ st.title("Bedrock Chat Application")
 st.sidebar.header("Configuration")
 model_id = st.sidebar.selectbox("Select LLM Model", ["us.anthropic.claude-haiku-4-5-20251001-v1:0", "us.anthropic.claude-sonnet-4-5-20250929-v1:0"])
 kb_id = st.sidebar.text_input("Knowledge Base ID", os.environ.get("KB_ID", "your-knowledge-base-id"))  # export KB_ID=<stack2 output>
-temperature = st.sidebar.select_slider("Temperature", [i/10 for i in range(0,11)],1)
+temperature = st.sidebar.select_slider("Temperature", [i/10 for i in range(0,11)], 0.0)  # low by default: spec numbers must not be invented
 top_p = st.sidebar.select_slider("Top_P", [i/1000 for i in range(0,1001)], 1)
 
 # Initialize chat history
