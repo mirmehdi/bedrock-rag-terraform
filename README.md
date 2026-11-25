@@ -140,34 +140,6 @@ streamlit run app.py
 cd stack2 && terraform destroy    # Knowledge Base first: it depends on the database
 cd ../stack1 && terraform destroy
 ```
-
----
-
-
-## Five things that broke
-
-![What broke and how it was fixed](docs/lessons.png)
-
-**1. The database version no longer existed.**
-The template pinned Aurora PostgreSQL `15.4`. A quick `aws rds describe-db-engine-versions` showed AWS had retired it, and the apply would have failed several minutes in. The fix was to move to `15.19`, the newest release in the same major line: bug and security fixes with no breaking changes.
-*Lesson: pinning versions is good practice, and checking them before an apply is part of it.*
-
-**2. An explicit deny on S3.**
-The S3 module tried to set a Public Access Block, and the account policy explicitly denied `s3:PutBucketPublicAccessBlock`. In IAM, an explicit deny always wins over any allow, so no change on the caller's side could work around it. New buckets already block public access by default, so the fix was `attach_public_policy = false`. Terraform's state meant the re-run only created the two missing resources and left the other 34 alone.
-*Lesson: read who denied the call and why before changing anything.*
-
-**3. Bedrock required a second index.**
-Creating the Knowledge Base failed with *"chunks column must be indexed."* Bedrock now supports hybrid search, which combines semantic similarity with keyword matching, and the keyword half needs a PostgreSQL full-text index. One `CREATE INDEX ... USING gin (to_tsvector('simple', chunks))` fixed it. `simple` (no English stemming) suits spec sheets full of model codes such as "X950".
-*Lesson: HNSW finds chunks by meaning, GIN finds them by exact words, and Bedrock wants both.*
-
-**4. The language models had been retired.**
-The app offered Claude 3 Haiku and Claude 3.5 Sonnet. The first returned *"This model version has reached the end of its life."* The app now uses Claude Haiku 4.5 and Sonnet 4.5 through **cross-region inference profiles** (`us.anthropic...`), which is also how newer models must be called on Bedrock.
-*Lesson: model IDs are configuration, not constants.*
-
-**5. Temperature and top_p could not be sent together.**
-The original code sent both. Claude 4.5 rejects that combination with a `ValidationException`. `generate_response()` now sends `top_p` when the user lowers it below 1.0 and `temperature` otherwise, so both sidebar controls stay meaningful. The guardrail classifier sends only `temperature = 0`, so the same question always gets the same category.
-*Lesson: the error message usually names the fix.*
-
 ---
 
 ## Design decisions
