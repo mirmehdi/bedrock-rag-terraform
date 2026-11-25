@@ -143,6 +143,7 @@ cd ../stack1 && terraform destroy
 
 ---
 
+
 ## Five things that broke
 
 ![What broke and how it was fixed](docs/lessons.png)
@@ -216,8 +217,6 @@ Almost all the cost comes from two resources that bill by the hour while they ex
 
 ---
 
-## Credits
 
-Built on the starter template from Udacity's *Building Generative AI Applications with Amazon Bedrock and Python* course. The infrastructure fixes, source citations, sampling-parameter handling, variable-driven Stack 2, cleaned SQL, diagrams and documentation are my own work.
 
 **Mir Mehdi Seyedebrahimi**: AI/ML engineer · Berlin
