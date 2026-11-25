@@ -55,7 +55,7 @@ The Knowledge Base talks to Aurora through the **RDS Data API** (SQL over HTTPS)
 |---|---|---|
 | ① Guardrail | `valid_prompt()` | Claude classifies the question into categories A to E at `temperature = 0`. Only E (heavy machinery) passes. This blocks off-topic, toxic and prompt-probing requests before they cost a retrieval or a generation. |
 | ② Retrieve | `query_knowledge_base()` | The Bedrock `Retrieve` API embeds the question and returns the top 3 chunks, each with a relevance score and the S3 URI of its source PDF. |
-| ③ Generate | `generate_response()` | Claude answers from the retrieved context. Exactly one sampling parameter is sent: `top_p` if the user lowered it, otherwise `temperature`. |
+| ③ Generate | `generate_response()` | Claude answers from the retrieved context; a system prompt tells it to use those passages only and to say so when they do not contain the answer. Exactly one sampling parameter is sent: `top_p` if the user lowered it, otherwise `temperature`. |
 | ④ Cite | `app.py` | The app appends the source documents and their best relevance scores to the answer. |
 
 ---
