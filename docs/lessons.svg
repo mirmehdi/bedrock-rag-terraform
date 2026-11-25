@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="690" viewBox="0 0 1600 690" font-family="Inter, DejaVu Sans, sans-serif">
+<defs><filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.25"/></filter></defs>
+<rect width="1600" height="690" fill="#0f172a"/>
+<text x="90" y="78" font-size="34" font-weight="700" fill="#ffffff">The course was written in 2024. AWS had moved on.</text>
+<text x="90" y="114" font-size="18" fill="#94a3b8">Five things broke on the way to a working RAG system, and how each one was fixed</text>
+<line x1="224.0" y1="196" x2="1376.0" y2="196" stroke="#334155" stroke-width="4"/>
+<circle cx="224.0" cy="196" r="26" fill="#2563eb"/><text x="224.0" y="205" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+<text x="224.0" y="252" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">TERRAFORM PLAN</text>
+<rect x="90" y="278" width="268" height="340" rx="16" fill="#ffffff" filter="url(#sh)"/>
+<rect x="90" y="278" width="268" height="8" rx="4" fill="#2563eb"/>
+<text x="110" y="322" font-size="12" font-weight="700" fill="#dc2626" letter-spacing="1">ERROR</text>
+<text x="110" y="348" font-size="16" font-weight="600" fill="#0f172a">Aurora 15.4 retired</text>
+<text x="110" y="392" font-size="12" font-weight="700" fill="#16a34a" letter-spacing="1">FIX</text>
+<text x="110" y="418" font-size="15" fill="#334155" font-family="DejaVu Sans Mono, monospace">engine_version → 15.19</text>
+<text x="110" y="462" font-size="12" font-weight="700" fill="#2563eb" letter-spacing="1">LESSON</text>
+<text x="110" y="488" font-size="15" fill="#475569" font-style="italic">Pin versions, but check them</text>
+<text x="110" y="510" font-size="15" fill="#475569" font-style="italic">before apply</text>
+<circle cx="512.0" cy="196" r="26" fill="#dc2626"/><text x="512.0" y="205" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+<text x="512.0" y="252" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">TERRAFORM APPLY</text>
+<rect x="378" y="278" width="268" height="340" rx="16" fill="#ffffff" filter="url(#sh)"/>
+<rect x="378" y="278" width="268" height="8" rx="4" fill="#dc2626"/>
+<text x="398" y="322" font-size="12" font-weight="700" fill="#dc2626" letter-spacing="1">ERROR</text>
+<text x="398" y="348" font-size="16" font-weight="600" fill="#0f172a">S3 PutPublicAccessBlock:</text>
+<text x="398" y="370" font-size="16" font-weight="600" fill="#0f172a">explicit deny</text>
+<text x="398" y="414" font-size="12" font-weight="700" fill="#16a34a" letter-spacing="1">FIX</text>
+<text x="398" y="440" font-size="15" fill="#334155" font-family="DejaVu Sans Mono, monospace">attach_public_policy =</text>
+<text x="398" y="462" font-size="15" fill="#334155" font-family="DejaVu Sans Mono, monospace">false</text>
+<text x="398" y="506" font-size="12" font-weight="700" fill="#dc2626" letter-spacing="1">LESSON</text>
+<text x="398" y="532" font-size="15" fill="#475569" font-style="italic">Explicit deny beats any</text>
+<text x="398" y="554" font-size="15" fill="#475569" font-style="italic">allow</text>
+<circle cx="800.0" cy="196" r="26" fill="#7c3aed"/><text x="800.0" y="205" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+<text x="800.0" y="252" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">STACK 2 APPLY</text>
+<rect x="666" y="278" width="268" height="340" rx="16" fill="#ffffff" filter="url(#sh)"/>
+<rect x="666" y="278" width="268" height="8" rx="4" fill="#7c3aed"/>
+<text x="686" y="322" font-size="12" font-weight="700" fill="#dc2626" letter-spacing="1">ERROR</text>
+<text x="686" y="348" font-size="16" font-weight="600" fill="#0f172a">KB: "chunks column must be</text>
+<text x="686" y="370" font-size="16" font-weight="600" fill="#0f172a">indexed"</text>
+<text x="686" y="414" font-size="12" font-weight="700" fill="#16a34a" letter-spacing="1">FIX</text>
+<text x="686" y="440" font-size="15" fill="#334155" font-family="DejaVu Sans Mono, monospace">GIN full-text index on</text>
+<text x="686" y="462" font-size="15" fill="#334155" font-family="DejaVu Sans Mono, monospace">chunks</text>
+<text x="686" y="506" font-size="12" font-weight="700" fill="#7c3aed" letter-spacing="1">LESSON</text>
+<text x="686" y="532" font-size="15" fill="#475569" font-style="italic">Bedrock needs vector +</text>
+<text x="686" y="554" font-size="15" fill="#475569" font-style="italic">keyword index (hybrid)</text>
+<circle cx="1088.0" cy="196" r="26" fill="#ea580c"/><text x="1088.0" y="205" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+<text x="1088.0" y="252" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">CHAT APP</text>
+<rect x="954" y="278" width="268" height="340" rx="16" fill="#ffffff" filter="url(#sh)"/>
+<rect x="954" y="278" width="268" height="8" rx="4" fill="#ea580c"/>
+<text x="974" y="322" font-size="12" font-weight="700" fill="#dc2626" letter-spacing="1">ERROR</text>
+<text x="974" y="348" font-size="16" font-weight="600" fill="#0f172a">Claude 3 Haiku: end of</text>
+<text x="974" y="370" font-size="16" font-weight="600" fill="#0f172a">life</text>
+<text x="974" y="414" font-size="12" font-weight="700" fill="#16a34a" letter-spacing="1">FIX</text>
+<text x="974" y="440" font-size="15" fill="#334155" font-family="DejaVu Sans Mono, monospace">Claude Haiku 4.5</text>
+<text x="974" y="462" font-size="15" fill="#334155" font-family="DejaVu Sans Mono, monospace">inference profile</text>
+<text x="974" y="506" font-size="12" font-weight="700" fill="#ea580c" letter-spacing="1">LESSON</text>
+<text x="974" y="532" font-size="15" fill="#475569" font-style="italic">Models retire; use inference</text>
+<text x="974" y="554" font-size="15" fill="#475569" font-style="italic">profiles</text>
+<circle cx="1376.0" cy="196" r="26" fill="#0f766e"/><text x="1376.0" y="205" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+<text x="1376.0" y="252" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle">CHAT APP</text>
+<rect x="1242" y="278" width="268" height="340" rx="16" fill="#ffffff" filter="url(#sh)"/>
+<rect x="1242" y="278" width="268" height="8" rx="4" fill="#0f766e"/>
+<text x="1262" y="322" font-size="12" font-weight="700" fill="#dc2626" letter-spacing="1">ERROR</text>
+<text x="1262" y="348" font-size="16" font-weight="600" fill="#0f172a">temperature + top_p</text>
+<text x="1262" y="370" font-size="16" font-weight="600" fill="#0f172a">rejected together</text>
+<text x="1262" y="414" font-size="12" font-weight="700" fill="#16a34a" letter-spacing="1">FIX</text>
+<text x="1262" y="440" font-size="15" fill="#334155" font-family="DejaVu Sans Mono, monospace">Send one sampling knob,</text>
+<text x="1262" y="462" font-size="15" fill="#334155" font-family="DejaVu Sans Mono, monospace">never both</text>
+<text x="1262" y="506" font-size="12" font-weight="700" fill="#0f766e" letter-spacing="1">LESSON</text>
+<text x="1262" y="532" font-size="15" fill="#475569" font-style="italic">Read the error: it usually</text>
+<text x="1262" y="554" font-size="15" fill="#475569" font-style="italic">names the fix</text>
+<text x="90" y="664" font-size="14" fill="#64748b">Terraform · Amazon Bedrock · Aurora PostgreSQL + pgvector · S3 · Secrets Manager · IAM · Streamlit</text>
+</svg>

@@ -1,0 +1,6 @@
+# Copy to terraform.tfvars and fill in from `terraform output` in stack1.
+# terraform.tfvars is git-ignored.
+aurora_arn        = "arn:aws:rds:us-west-2:<ACCOUNT_ID>:cluster:my-aurora-serverless"
+aurora_endpoint   = "my-aurora-serverless.cluster-<ID>.us-west-2.rds.amazonaws.com"
+aurora_secret_arn = "arn:aws:secretsmanager:us-west-2:<ACCOUNT_ID>:secret:my-aurora-serverless-<SUFFIX>"
+s3_bucket_arn     = "arn:aws:s3:::bedrock-kb-<ACCOUNT_ID>"

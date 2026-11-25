@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" font-family="Inter, DejaVu Sans, sans-serif">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0f766e"/></marker>
+    <marker id="ap" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7c3aed"/></marker>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.10"/></filter>
+  </defs>
+  <rect width="1600" height="980" fill="#f8fafc"/>
+  <!-- title -->
+  <text x="60" y="70" font-size="34" font-weight="700" fill="#0f172a">Intelligent Document Querying on AWS</text>
+  <text x="60" y="104" font-size="18" fill="#475569">RAG with Amazon Bedrock Knowledge Bases · Aurora PostgreSQL + pgvector · provisioned with Terraform</text>
+
+  <!-- AWS cloud boundary -->
+  <rect x="330" y="140" width="1230" height="790" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="356" y="176" font-size="16" font-weight="600" fill="#64748b">AWS Cloud · us-west-2 (Oregon)</text>
+
+  <!-- Stack1 area -->
+  <rect x="356" y="196" width="700" height="440" rx="18" fill="#eff6ff" stroke="#93c5fd" stroke-dasharray="7 6" stroke-width="2"/>
+  <text x="378" y="226" font-size="15" font-weight="700" fill="#1d4ed8">TERRAFORM STACK 1 · data foundation</text>
+
+  <!-- VPC -->
+  <rect x="378" y="244" width="430" height="370" rx="16" fill="#ffffff" stroke="#60a5fa" stroke-width="2"/>
+  <text x="398" y="272" font-size="15" font-weight="600" fill="#1e40af">VPC 10.0.0.0/16 · 3 AZs</text>
+  <rect x="398" y="288" width="390" height="60" rx="10" fill="#f1f5f9"/>
+  <text x="414" y="314" font-size="14" font-weight="600" fill="#334155">Public subnets</text>
+  <text x="414" y="335" font-size="13" fill="#64748b">Internet gateway · single NAT gateway</text>
+  <rect x="398" y="362" width="390" height="236" rx="10" fill="#f1f5f9"/>
+  <text x="414" y="388" font-size="14" font-weight="600" fill="#334155">Private subnets (no inbound internet)</text>
+  <rect x="420" y="404" width="346" height="176" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="2.5" filter="url(#sh)"/>
+  <text x="440" y="436" font-size="18" font-weight="700" fill="#0f172a">Aurora PostgreSQL</text>
+  <text x="440" y="458" font-size="14" fill="#475569">Serverless v2 · 0.5–1 ACU · 15.19</text>
+  <text x="440" y="490" font-size="14" font-weight="600" fill="#1d4ed8">pgvector table bedrock_kb</text>
+  <text x="440" y="512" font-size="13" fill="#475569">id · embedding vector(1536) · chunks · metadata</text>
+  <text x="440" y="540" font-size="13" fill="#475569">HNSW index → semantic search</text>
+  <text x="440" y="562" font-size="13" fill="#475569">GIN index → keyword / hybrid search</text>
+
+  <!-- S3 -->
+  <rect x="836" y="244" width="200" height="160" rx="14" fill="#ffffff" stroke="#16a34a" stroke-width="2.5" filter="url(#sh)"/>
+  <text x="856" y="278" font-size="18" font-weight="700" fill="#0f172a">Amazon S3</text>
+  <text x="856" y="302" font-size="13" fill="#475569">5 spec-sheet PDFs</text>
+  <text x="856" y="326" font-size="13" fill="#475569">SSE-S3 · versioning</text>
+  <text x="856" y="350" font-size="13" fill="#475569">Block Public Access</text>
+  <text x="856" y="384" font-size="12" fill="#16a34a" font-weight="600">data source</text>
+
+  <!-- Secrets -->
+  <rect x="836" y="430" width="200" height="130" rx="14" fill="#ffffff" stroke="#dc2626" stroke-width="2.5" filter="url(#sh)"/>
+  <text x="856" y="464" font-size="18" font-weight="700" fill="#0f172a">Secrets Manager</text>
+  <text x="856" y="488" font-size="13" fill="#475569">DB credentials</text>
+  <text x="856" y="510" font-size="13" fill="#475569">(random password,</text>
+  <text x="856" y="530" font-size="13" fill="#475569">never in code)</text>
+
+  <!-- Stack2 area -->
+  <rect x="1086" y="196" width="450" height="440" rx="18" fill="#f5f3ff" stroke="#c4b5fd" stroke-dasharray="7 6" stroke-width="2"/>
+  <text x="1108" y="226" font-size="15" font-weight="700" fill="#6d28d9">TERRAFORM STACK 2 · AI layer</text>
+  <rect x="1108" y="244" width="406" height="196" rx="14" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5" filter="url(#sh)"/>
+  <text x="1128" y="278" font-size="18" font-weight="700" fill="#0f172a">Bedrock Knowledge Base</text>
+  <text x="1128" y="302" font-size="13" fill="#475569">managed RAG: parse → chunk → embed → store</text>
+  <rect x="1128" y="320" width="366" height="50" rx="10" fill="#f5f3ff"/>
+  <text x="1146" y="351" font-size="14" font-weight="600" fill="#5b21b6">Titan Text Embeddings V1 · 1536-d</text>
+  <text x="1128" y="398" font-size="13" fill="#475569">Retrieve API: top-3 chunks + S3 source</text>
+  <text x="1128" y="420" font-size="13" fill="#475569">writes vectors via RDS Data API</text>
+  <rect x="1108" y="460" width="406" height="150" rx="14" fill="#ffffff" stroke="#a855f7" stroke-width="2" filter="url(#sh)"/>
+  <text x="1128" y="494" font-size="18" font-weight="700" fill="#0f172a">IAM service role</text>
+  <text x="1128" y="518" font-size="13" fill="#475569">trusted by bedrock.amazonaws.com only</text>
+  <text x="1128" y="542" font-size="13" fill="#475569">rds-data:* on this cluster only</text>
+  <text x="1128" y="566" font-size="13" fill="#475569">GetSecretValue on this secret only</text>
+  <text x="1128" y="590" font-size="13" fill="#475569">s3:GetObject on the document bucket</text>
+
+  <!-- Bedrock runtime -->
+  <rect x="356" y="680" width="1180" height="226" rx="18" fill="#fff7ed" stroke="#fdba74" stroke-width="2"/>
+  <text x="378" y="712" font-size="15" font-weight="700" fill="#c2410c">AMAZON BEDROCK RUNTIME · Claude Haiku 4.5 / Sonnet 4.5 (cross-region inference profiles)</text>
+  <rect x="378" y="732" width="350" height="150" rx="14" fill="#ffffff" stroke="#ea580c" stroke-width="2.5" filter="url(#sh)"/>
+  <text x="398" y="766" font-size="18" font-weight="700" fill="#0f172a">① Prompt guardrail</text>
+  <text x="398" y="792" font-size="13" fill="#475569">Claude classifies the question A–E</text>
+  <text x="398" y="814" font-size="13" fill="#475569">temperature = 0 (deterministic)</text>
+  <text x="398" y="836" font-size="13" fill="#475569">only "heavy machinery" (E) passes</text>
+  <text x="398" y="864" font-size="12" fill="#ea580c" font-weight="600">blocks off-topic, toxic, prompt-probing</text>
+  <rect x="770" y="732" width="350" height="150" rx="14" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5" filter="url(#sh)"/>
+  <text x="790" y="766" font-size="18" font-weight="700" fill="#0f172a">② Retrieve</text>
+  <text x="790" y="792" font-size="13" fill="#475569">question → Titan embedding</text>
+  <text x="790" y="814" font-size="13" fill="#475569">nearest chunks from Aurora</text>
+  <text x="790" y="836" font-size="13" fill="#475569">top-3 + relevance + S3 URI</text>
+  <rect x="1162" y="732" width="350" height="150" rx="14" fill="#ffffff" stroke="#ea580c" stroke-width="2.5" filter="url(#sh)"/>
+  <text x="1182" y="766" font-size="18" font-weight="700" fill="#0f172a">③ Generate</text>
+  <text x="1182" y="792" font-size="13" fill="#475569">Claude answers from the context</text>
+  <text x="1182" y="814" font-size="13" fill="#475569">temperature OR top_p (not both)</text>
+  <text x="1182" y="836" font-size="13" fill="#475569">answer + cited source documents</text>
+
+  <!-- User / app -->
+  <rect x="40" y="420" width="250" height="190" rx="16" fill="#0f172a" filter="url(#sh)"/>
+  <text x="62" y="458" font-size="19" font-weight="700" fill="#ffffff">Streamlit chat app</text>
+  <text x="62" y="484" font-size="13" fill="#cbd5e1">app.py · bedrock_utils.py</text>
+  <text x="62" y="516" font-size="13" fill="#cbd5e1">model · KB ID ·</text>
+  <text x="62" y="536" font-size="13" fill="#cbd5e1">temperature · top_p</text>
+  <text x="62" y="580" font-size="14" fill="#fbbf24" font-weight="600">"What does the DT1000 weigh?"</text>
+  <rect x="40" y="200" width="250" height="170" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="62" y="236" font-size="19" font-weight="700" fill="#0f172a">Engineer laptop</text>
+  <text x="62" y="264" font-size="13" fill="#475569">terraform apply / destroy</text>
+  <text x="62" y="288" font-size="13" fill="#475569">SQL in RDS Query Editor</text>
+  <text x="62" y="312" font-size="13" fill="#475569">upload_s3.py → PDFs</text>
+  <text x="62" y="336" font-size="13" fill="#475569">KB sync (ingestion job)</text>
+
+  <!-- arrows: ingestion (green) -->
+  <path d="M290 260 H310 V128 H936 V240" fill="none" stroke="#0f766e" stroke-width="2.5" marker-end="url(#ag)"/>
+  <text x="640" y="122" font-size="13" fill="#0f766e" font-weight="600">upload PDFs (upload_s3.py)</text>
+  <path d="M1036 300 L1104 300" fill="none" stroke="#0f766e" stroke-width="2.5" marker-end="url(#ag)"/>
+  <text x="1046" y="290" font-size="12" fill="#0f766e" font-weight="600">sync</text>
+  <path d="M1108 425 H1064 V603 H600 V586" fill="none" stroke="#0f766e" stroke-width="2.5" marker-end="url(#ag)"/>
+  <text x="740" y="626" font-size="12" fill="#0f766e" font-weight="600">INSERT chunks + vectors (RDS Data API)</text>
+  <path d="M1108 520 H1040" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#ar)"/>
+
+  <!-- arrows: query (purple) -->
+  <path d="M290 500 H312 V800 H374" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#ap)"/>
+  <path d="M728 806 L766 806" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#ap)"/>
+  <path d="M1100 732 V658 H1550 V342 H1518" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#ap)"/>
+  <text x="1300" y="652" font-size="12" fill="#7c3aed" font-weight="600">Retrieve API</text>
+  <path d="M1120 806 L1158 806" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#ap)"/>
+  <path d="M1337 882 V918 H165 V614" fill="none" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#ap)"/>
+  <text x="600" y="952" font-size="13" fill="#7c3aed" font-weight="600">grounded answer + cited sources</text>
+
+  <!-- legend -->
+  <rect x="1150" y="36" width="410" height="80" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <line x1="1168" y1="62" x2="1204" y2="62" stroke="#0f766e" stroke-width="3"/><text x="1212" y="67" font-size="13" fill="#334155">ingestion (offline)</text>
+  <line x1="1368" y1="62" x2="1404" y2="62" stroke="#7c3aed" stroke-width="3"/><text x="1412" y="67" font-size="13" fill="#334155">question → answer</text>
+  <line x1="1168" y1="92" x2="1204" y2="92" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 5"/><text x="1212" y="97" font-size="13" fill="#334155">reads DB credentials</text>
+</svg>
